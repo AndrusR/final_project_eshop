@@ -1,12 +1,14 @@
 from django.db import models
 import datetime
 
+
 # Categories of Products
 class Category(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
+
 
 # Categories of Customer
 class Customer(models.Model):
@@ -30,6 +32,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
 
 # Customer Orders
 class Order(models.Model):
