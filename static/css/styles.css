@@ -54,18 +54,15 @@ nav a
 .footer {
   width: 100%;
   height: 2.5rem;
+  position: absolute;
+  bottom: 5%;
+  background-color: #444; /* Optional: Add a background color to the footer */
+  display: flex;
+  justify-content: center; /* Center-align text horizontally */
+  align-items: center;
 }
 .copyright {
   font-family: Futura, sans-serif;
   font-size: 10px;
   color: gray;
-}
-
-.navbar-nav {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-.nav-item {
-  margin-left: 15px;
 }
