@@ -1,22 +1,82 @@
-.fakeimg {
-  height: 200px;
-  background: #aaa;
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=Swap');
+
+/*Navbar*/
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
+
+/*Website Background*/
+body
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(75deg, #0f1219, #002244);
+  background-size: 300% 300%;
+  animation: color 10s ease-in-out infinite;
+}
+@keyframes color {
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
+}
+
+nav
+{
+  position: fixed;
+  left: 65%;
+  top: 20px;
+  display: flex;
+  background: #1e232f;
+  padding: 10px 0;
+}
+nav a
+{
+  position: relative;
+  text-decoration: none;
+  padding: 15px 25px;
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+#marker
+{
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 90px;
+  border-bottom: 5px solid #08f9;
+  background: linear-gradient(0deg, #08f9ff33, transparent);
+  transition: 0.5s;
+  pointer-events: none;
+  filter: drop-shadow(0 5px 25px #08f9);
+}
+
+
+
+/*STOCK LINES*/
 .footer {
   width: 100%;
   height: 2.5rem;
+  position: absolute;
+  bottom: 5%;
+  background-color: #444; /* Optional: Add a background color to the footer */
+  display: flex;
+  justify-content: center; /* Center-align text horizontally */
+  align-items: center;
 }
 .copyright {
   font-family: Futura, sans-serif;
   font-size: 10px;
   color: gray;
-}
-
-.navbar-nav {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-.nav-item {
-  margin-left: 15px;
 }
