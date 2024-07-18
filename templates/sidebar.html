@@ -1,16 +1,16 @@
 <body>
     <nav>
         <ul class="sidebar">
-            <li><a href="#">Ship Happens</a></li>
-            <li><a href="#">Mootorpaadid</a></li>
-            <li><a href="#">Purjekad</a></li>
-            <li><a href="#">Jetid</a></li>
-            <li><a href="#">Päästevarustus</a></li>
+            <li><a href="{% url 'home' %}">Ship Happens</a></li>
+            <li><a href="{% url 'mootor' %}">Mootorpaadid</a></li>
+            <li><a href="{% url 'purjekad' %}">Purjekad</a></li>
+            <li><a href="{% url 'jetid' %}">Jetid</a></li>
+            <li><a href="{% url 'paaste' %}">Päästevarustus</a></li>
         </ul>
         <ul class="navbar">
-            <li><a href="#">User</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
             <li><a href="#">Cart</a></li>
         </ul>
     </nav>
