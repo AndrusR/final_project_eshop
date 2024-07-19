@@ -1,91 +1,123 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=Swap');
+
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-/*Website Background*/
 body
 {
+  /*height: 100vh;*/
+  /*width: 100%;*/
+  /*background-image: url("media/uploads/wave.png");*/
+  /*background-position: center;*/
+  /*background-size: cover;*/
+  position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   min-height: 100vh;
-  background: linear-gradient(75deg, #0f1219, #002244);
+  background: linear-gradient(75deg, #0f1219, blue);
   background-size: 300% 300%;
   animation: color 10s ease-in-out infinite;
 }
-@keyframes color {
-  0%{
-    background-position: 0 50%;
-  }
-  50%{
-    background-position: 100% 50%;
-  }
-  100%{
-    background-position: 0 50%;
-  }
-}
-nav{
-  background-color: #002244;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-}
-nav ul{
-  width: 100%;
-  list-style: none;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-nav li{
-  height: 50px;
-}
-nav a{
-  height: 100%;
-  padding: 0 30px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  color: black;
-}
-nav a:hover{
-  background-color: white;
-}
-nav li:first-child{
-  margin-right: auto;
-}
+
 .sidebar{
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 250px;
-  z-index: 999;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  width: 110px;
+  height: 100%;
   display: flex;
+  align-items: center;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-.sidebar li{
-  width: 100%;
-}
-.sidebar a{
-  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(17px);
+  --webkit-backdrop-filter: blur(17px);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  transition: width 0.3s ease;
 }
 
-/*STOCK LINES*/
-.footer {
+.sidebar:hover{
+  width: 260px;
+}
+
+.sidebar .logo{
+  display: flex;
+  align-items: center;
+  padding: 25px 10px 15px;
+}
+
+.logo img{
+  width: 43px;
+}
+
+.logo h2{
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-left: 15px;
+}
+
+.sidebar:hover .logo h2{
+  display: block;
+}
+
+.sidebar .links{
+  list-style: none;
+  margin-top: 20px;
+}
+
+.sidebar .links h4{
+  color: #222;
+  font-weight: 500;
+  margin-bottom: 10px;
+  display: none;
+}
+
+.sidebar:hover .links h4{
+  display: block;
+}
+
+.links li{
+  display: flex;
+  align-items: center;
+}
+
+.links li:hover{
+  border-radius: 3px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.links li span{
+  padding: 12px 10px;
+}
+
+.links li a{
+  color: #000;
+  padding: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+  display: none;
+}
+
+.sidebar:hover .links li a{
+  display: block;
+}
+
+.footer{
   width: 100%;
   height: 2.5rem;
   position: absolute;
   bottom: 5%;
-  background-color: #444; /* Optional: Add a background color to the footer */
   display: flex;
   justify-content: center; /* Center-align text horizontally */
   align-items: center;
 }
+
 .copyright {
   font-family: Futura, sans-serif;
   font-size: 10px;

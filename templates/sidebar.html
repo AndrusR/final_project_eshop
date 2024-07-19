@@ -1,17 +1,60 @@
 <body>
-    <nav>
-        <ul class="sidebar">
-            <li><a href="{% url 'home' %}">Ship Happens</a></li>
-            <li><a href="{% url 'mootor' %}">Mootorpaadid</a></li>
-            <li><a href="{% url 'purjekad' %}">Purjekad</a></li>
-            <li><a href="{% url 'jetid' %}">Jetid</a></li>
-            <li><a href="{% url 'paaste' %}">Päästevarustus</a></li>
-        </ul>
-        <ul class="navbar">
-            <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="#">Cart</a></li>
-        </ul>
-    </nav>
+    <aside class="sidebar">
+{#    <img src="logo.png" alt="Logo" class="navbar-logo">#}
+        <div class="logo"></div>
+            <img src="logo.png" alt="logo">
+            <h2 style="color:white">Ship Happens</h2>
+                <ul style="color:white">
+
+                    <li><h4>Main Menu</h4></li>
+
+                    <li>
+                        <span class="material-symbols-outlined">dashboard</span>
+                        <a href="{% url 'home' %}">Ship Happens</a>
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined">perm_contact_calendar</span>
+                        <a href="{% url 'about' %}">About</a>
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined">call</span>
+                        <a href="{% url 'contact' %}">Contact</a>
+                    </li>
+
+                    <li>
+                        <h4>Products</h4>
+                    </li>
+
+                    <li>
+                        <span class="material-symbols-outlined">package_2</span>
+                        <a href="{% url 'mootor' %}">Mootorpaadid</a>
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined">package_2</span>
+                        <a href="{% url 'purjekad' %}">Purjekad</a>
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined">package_2</span>
+                        <a href="{% url 'jetid' %}">Jetid</a>
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined">package_2</span>
+                        <a href="{% url 'paaste' %}">Päästevarustus</a>
+                    </li>
+
+                    <li>
+                        <h4>Account</h4>
+                    </li>
+
+                    <li>
+                        <span class="material-symbols-outlined">login</span>
+                        <a href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <a href="#">Cart</a>
+                    </li>
+                </ul>
+
+    </aside>
 </body>

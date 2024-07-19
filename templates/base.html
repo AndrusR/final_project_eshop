@@ -7,17 +7,19 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 
 <body>
 
+    {% include 'sidebar.html' %}
 
     {% block content %}
       home.html
     {% endblock %}
 
-    {% include 'sidebar.html' %}
+
 
 <div class="mt-5 p-4 bg-dark text-white text-center footer">
   <p style="color: white" class="copyright">Copyright © 2024 ShipHappens. All rights reserved.</p>
