@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block title %}
+Product List
+{% endblock %}
 
-<h1 style="color: white">Welcome to Our Store</h1>
-<h2 style="color: white">Products</h2>
+{% block content %}
+<h1>Product List</h1>
 <ul>
     {% for product in products %}
         <li>
@@ -12,5 +14,4 @@
         </li>
     {% endfor %}
 </ul>
-
 {% endblock %}
