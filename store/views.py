@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product
-from .forms import ProductForm
+from .forms import ProductForm, LoginForm, SignUpForm
 
 
 def home(request):
