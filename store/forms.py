@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['name', 'price', 'category', 'description', 'image', 'user']
+        fields = ['name', 'price', 'description', 'image', 'category']
 
 
 # For creating and updating order instances in the 'Order' model.
