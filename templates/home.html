@@ -2,6 +2,15 @@
 
 {% block content %}
 
-<h2 style="color: black">Boats Coming Soon...</h2>
+<h1 style="color: white">Welcome to Our Store</h1>
+<h2 style="color: white">Products</h2>
+<ul>
+    {% for product in products %}
+        <li>
+            <a href="{% url 'product-detail' product.pk %}">{{ product.name }}</a>
+            - {{ product.price }} EUR
+        </li>
+    {% endfor %}
+</ul>
 
 {% endblock %}
