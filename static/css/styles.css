@@ -9,19 +9,15 @@
 
 body
 {
-  /*height: 100vh;*/
-  /*width: 100%;*/
-  /*background-image: url("media/uploads/wave.png");*/
-  /*background-position: center;*/
-  /*background-size: cover;*/
-  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-image: url("../images/wave.png");
+  background-position: center;
+  background-size: cover;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   min-height: 100vh;
-  background: linear-gradient(75deg, #0f1219, blue);
-  background-size: 300% 300%;
-  animation: color 10s ease-in-out infinite;
 }
 
 .sidebar{
@@ -41,7 +37,7 @@ body
 }
 
 .sidebar:hover{
-  width: 260px;
+  width: 300px;
 }
 
 .sidebar .logo{
@@ -50,8 +46,8 @@ body
   padding: 25px 10px 15px;
 }
 
-.logo img{
-  width: 43px;
+.logo{
+  width: 100%;
 }
 
 .logo h2{
@@ -88,7 +84,7 @@ body
 .links li:hover{
   border-radius: 3px;
   cursor: pointer;
-  background: #fff;
+  background: lightskyblue;
 }
 
 .links li span{
@@ -121,5 +117,5 @@ body
 .copyright {
   font-family: Futura, sans-serif;
   font-size: 10px;
-  color: gray;
+  color: black;
 }
