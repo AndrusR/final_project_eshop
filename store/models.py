@@ -1,11 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
-import datetime
 
 
 # Categories of Products
 class Category(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)  # Name of the category
 
     def __str__(self):
         return self.name
@@ -13,26 +12,46 @@ class Category(models.Model):
 
 # All of our Products
 class Product(models.Model):
-    name = models.CharField(max_length=100)
-    price = models.DecimalField(default=0, decimal_places=2, max_digits=6)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
-    description = models.CharField(max_length=250, default='', blank=True, null=True)
-    image = models.ImageField(upload_to='uploads/product/')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    name = models.CharField(max_length=250, help_text='Enter a name for the product')
+    price = models.DecimalField(default=0, decimal_places=2, max_digits=10)
+    description = models.CharField(max_length=250, default='', blank=True, null=True, help_text='Enter a description of the product')
+    image = models.ImageField(upload_to='media/product/')
+    stock_quantity = models.IntegerField(default=0)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)  # Links the product to a category
 
     def __str__(self):
         return self.name
 
 
-# Customer Orders
+# Order represents the ready-to-purchase details by a user
 class Order(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    quantity = models.IntegerField(default=1)
-    address = models.CharField(max_length=100, default='', blank=True)
-    phone = models.CharField(max_length=20, default='', blank=True)
-    date = models.DateField(default=datetime.datetime.today)
-    status = models.BooleanField(default=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1, null=True)  # ForeignKey linking to the user who made the order
+    number = models.CharField(max_length=50)
+    date = models.DateField(auto_now_add=True)
+    status = models.CharField()  # Status of the order, whether completed, pending etc.
+    shopping_cart = models.ForeignKey("ShoppingCart", on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.product
+        return f'Order {self.number} is {self.status}.'
+
+
+# ShoppingCart represents a collection of products that a user intends to buy
+class ShoppingCart(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+    total_price = models.DecimalField(default=0, decimal_places=2, max_digits=10)
+
+    def __str__(self):
+        return f'Shopping cart {self.id}.'
+
+
+# Review represents feedback by a user about a product
+class Review(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    rating = models.IntegerField(default=0)  # Rating given by the user
+    comment = models.TextField()  # Comment added by the user
+    date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Review on {self.product} by {self.user} on {self.date}.'
