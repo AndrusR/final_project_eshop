@@ -1,14 +1,14 @@
 from django import forms
 from .models import Product, Order, Review
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.models import User, AbstractUser
+from django.contrib.auth.models import User
 
 
 # For creating and updating product instances in the 'Product' model.
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['name', 'price','description', 'image', 'category_id']
+        fields = ['name', 'price', 'description', 'image', 'category_id']
 
 
 # For creating and updating order instances in the 'Order' model.
