@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Order
+from .models import Product, Order, Review
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['name', 'price', 'category','description', 'image', 'user']
+        fields = ['name', 'price', 'description', 'image', 'category']
 
 
 # For creating and updating order instances in the 'Order' model.
@@ -52,3 +52,9 @@ class SignUpForm(UserCreationForm):
         self.fields['password1'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Password'})
         self.fields['password2'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Confirm Password'})
         self.fields['email'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Email Address'})
+
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = []
