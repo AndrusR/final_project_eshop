@@ -28,11 +28,22 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1, null=True)  # ForeignKey linking to the user who made the order
     number = models.CharField(max_length=50)
     date = models.DateField(auto_now_add=True)
-    status = models.CharField()  # Status of the order, whether completed, pending etc.
+    completed = models.BooleanField(default=False)  # Status of the order, whether completed, pending etc.
+    shipping_info = models.ForeignKey("ShippingInfo", on_delete=models.CASCADE, null=True)
     shopping_cart = models.ForeignKey("ShoppingCart", on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'Order {self.number} is {self.status}.'
+        return f'Order {self.number} is {self.completed}.'
+
+
+class ShippingInfo(models.Model):
+    full_name = models.CharField(max_length=64, null=False)
+    email = models.CharField(max_length=128, null=False)
+    address = models.CharField(max_length=250, default='')
+    city = models.CharField(max_length=32, default='')
+    phone = models.CharField(max_length=16, default='')
+    country = models.CharField(max_length=32, default='')
+    index = models.CharField(max_length=32, default='')
 
 
 # ShoppingCart represents a collection of products that a user intends to buy

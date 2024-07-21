@@ -104,6 +104,14 @@ body
   display: block;
 }
 
+/* Home page picture pointer */
+.sale_special{
+  width: 50%;
+  height: auto;
+  cursor: pointer; /*Changes the cursor to a pointer when hovering over the image */
+}
+
+
 .footer{
   width: 100%;
   height: 2.5rem;
