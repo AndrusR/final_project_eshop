@@ -1,10 +1,36 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product
+from .models import Product, Category
 from .forms import ProductForm, LoginForm, SignUpForm
+from django.contrib import messages
 
 
 def home(request):
-    return render(request, 'home.html', {})
+    return render(request, 'home.html',)
+
+
+def category(request, category_name):
+    # Grab the category from the url
+    try:
+        # Look Up The Category
+        category = Category.objects.get(name=category_name)
+        products = Product.objects.filter(category=category)
+        return render(request, 'category.html', {'products': products, 'category': category})
+    except:
+        messages.success(request, ("That Category Doesn't Exist..."))
+        return redirect('home')
+
+
+def product(request, pk):
+    products = Product.objects.get(id=pk)
+    return render(request, 'category.html', {'products': products})
+
+
+def about(request):
+    return render(request, 'about.html')
+
+
+def contact(request):
+    return render(request, 'contact.html')
 
 
 # Product Views

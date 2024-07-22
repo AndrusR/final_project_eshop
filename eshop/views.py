@@ -4,34 +4,6 @@ from django.contrib import messages
 from store.forms import LoginForm, SignUpForm
 
 
-def home(request):
-    return render(request, 'home.html')
-
-
-def contact(request):
-    return render(request, 'contact.html')
-
-
-def about(request):
-    return render(request, 'about.html')
-
-
-def mootor(request):
-    return render(request, 'mootor.html')
-
-
-def purjekad(request):
-    return render(request, 'purjekad.html')
-
-
-def jetid(request):
-    return render(request, 'jetid.html')
-
-
-def paaste(request):
-    return render(request, 'paaste.html')
-
-
 # Handles user registration. If form is valid, it saves the form and creates a new user and redirects to login page.
 def user_signup(request):
     if request.method == 'POST':
