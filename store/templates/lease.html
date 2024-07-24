@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+
+    {% load static %}
+    <a href="{% url 'home' %}">
+        <img class="lease" src="{% static "images/lease.svg" %}" alt="lease" style="width:400px;height:600px;">
+    </a>
+
+    <h1><b>Leasing Conditions:</b></h1>
+    <p> - Down Payment: from 0%<br>
+        - Leasing Period: 3-60 months<br>
+        - Minimum Financing: 500 EUR<br>
+        - Maximum Financing: according to Customer's creditworthiness<br>
+        - Contract Fee: 1.6% of the acquisition cost, minimum 29 EUR<br>
+        - Collateral: leased asset<br>
+        - Interest Rate: customer- or project-based (starting from 3%-...)<br>
+        - Age of Leased Asset: up to 15 years, older in exceptional cases<br>
+        - Residual Value Option: yes, up to 50%<br>
+        - Insurance Requirement: yes, but exceptions are possible<br>
+        - Fixed Monthly Payment: yes, throughout the period<br>
+        - Payment Holiday: yes, with prior agreement with the Lessor<br>
+        - Priority Right to Purchase Asset: Lessee has priority, but return option is also available<br>
+        - Services Included in Monthly Payment: yes, with prior agreement with the Lessor<br>
+        - Additional Collateral Options: yes, with prior agreement with the Lessor<br>
+        <br>
+    </p>
+        <p><strong>Phone:</strong><br>
+        +372 123-4567</p>
+
+        <p><strong>Email:</strong><br>
+        <a href="mailto:info@finecon.com">info@finecon.com</a></p>
+
+</div>
+
+{% endblock %}
+

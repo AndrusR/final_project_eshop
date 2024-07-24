@@ -33,6 +33,10 @@ def contact(request):
     return render(request, 'contact.html')
 
 
+def lease(request):
+    return render(request, 'lease.html',)
+
+
 # Product Views
 def product_list(request):
     products = Product.objects.all()
