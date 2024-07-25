@@ -20,9 +20,9 @@ def category(request, category_name):
         return redirect('home')
 
 
-def product(request, pk):
-    products = Product.objects.get(id=pk)
-    return render(request, 'category.html', {'products': products})
+def product_detail(request, pk):
+    product = Product.objects.get(id=pk)
+    return render(request, 'product_detail.html', {'product': product})
 
 
 def about(request):
@@ -35,17 +35,6 @@ def contact(request):
 
 def lease(request):
     return render(request, 'lease.html',)
-
-
-# Product Views
-def product_list(request):
-    products = Product.objects.all()
-    return render(request, 'product_list.html', {'products': products})
-
-
-def product_detail(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    return render(request, 'product_detail.html', {'product': product})
 
 
 
