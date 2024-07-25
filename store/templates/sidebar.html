@@ -45,17 +45,20 @@
                         <h4>Account</h4>
                     </li>
 
-                    <li>
-                        <span class="material-symbols-outlined">id_card</span>
-                        <a href="#">Name</a>
-                    </li>
-
                     {% if user.is_authenticated %}
+                        <li>
+                            <span class="material-symbols-outlined">id_card</span>
+                            <a href="">{{ user.username }}</a>
+                        </li>
                         <li>
                             <span class="material-symbols-outlined">logout</span>
                             <a href="{% url 'logout' %}">Logout</a>
                         </li>
                     {% else %}
+                        <li>
+                            <span class="material-symbols-outlined">id_card</span>
+                            <a href="{% url 'login' %}">Account Info</a>
+                        </li>
                         <li>
                             <span class="material-symbols-outlined">login</span>
                             <a href="{% url 'login' %}">Login</a>
