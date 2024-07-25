@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+{% endblock %}
+
+{% block content %}
+<section class="cart-container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="card cart-card">
+                    <div class="card-body cart-card-body">
+                        <h2 class="text-center text-black mb-4">Your Cart</h2>
+                        {% if user.is_authenticated %}
+                            {% if cart and cart.items.exists %}
+                                <div style="display: grid; grid-template-columns: auto 1fr auto auto; gap: 10px; padding: 10px;">
+                                    {% for item in cart.items.all %}
+                                        <div>
+                                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="width: 100px; height: auto;">
+                                        </div>
+                                        <div style="display: flex; align-items: center; font-weight: bold;">
+                                            {{ item.product.name }}
+                                        </div>
+                                        <div style="display: flex; align-items: center; color: #555;">
+                                            {{ item.quantity }}
+                                        </div>
+                                        <div style="display: flex; align-items: center; color: #007bff;">
+                                            ${{ item.product.price }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 10px; margin-top: 20px; border-top: 1px solid #ddd;">
+                                    <div>
+                                        <span style="font-weight: bold;">Total Quantity: {{ cart.total_quantity }}</span><br>
+                                        <span style="font-weight: bold;">Total Price: ${{ cart.total_price }}</span>
+                                    </div>
+                                    <div>
+                                        <a href="{% url 'order' %}" class="btn btn-primary btn-lg" style="background-color: #007bff; border: none; color: white; text-decoration: none; border-radius: 5px; padding: 10px 20px;">Place Order</a>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <p style="font-family: Arial, sans-serif; text-align: center; color: #999;">Your cart is empty.</p>
+                            {% endif %}
+                        {% else %}
+                            <p style="font-family: Arial, sans-serif; text-align: center; color: #999;">You need to <a href="{% url 'registration/login' %}">log in</a> to view your cart.</p>
+                        {% endif %}
+                        <div style="text-align: center; margin-top: 20px;">
+                            <a href="{% url 'home' %}" class="btn btn-secondary btn-lg" style="background-color: #6c757d; border: none; color: white; text-decoration: none; border-radius: 5px; padding: 10px 20px;">Continue Shopping</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

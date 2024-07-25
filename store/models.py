@@ -48,6 +48,7 @@ class ShippingInfo(models.Model):
 
 # ShoppingCart represents a collection of products that a user intends to buy
 class ShoppingCart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)  # Link the cart to a user
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
     total_price = models.DecimalField(default=0, decimal_places=2, max_digits=10)

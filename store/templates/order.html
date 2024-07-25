@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="order-container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="card order-card">
+                    <div class="card-body order-card-body">
+                        <h2 class="text-center text-black mb-4">Shipping Information</h2>
+                        <form method="post" action="{% url 'order_info' %}" style="max-width: 600px; margin: auto;">
+                            {% csrf_token %}
+                            <div style="margin-bottom: 15px;">
+                                <label for="full_name" style="display: block; font-weight: bold;">Full Name:</label>
+                                <input type="text" id="full_name" name="full_name" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label for="email" style="display: block; font-weight: bold;">Email:</label>
+                                <input type="email" id="email" name="email" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label for="address" style="display: block; font-weight: bold;">Address:</label>
+                                <input type="text" id="address" name="address" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label for="city" style="display: block; font-weight: bold;">City:</label>
+                                <input type="text" id="city" name="city" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label for="phone" style="display: block; font-weight: bold;">Phone:</label>
+                                <input type="text" id="phone" name="phone" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label for="country" style="display: block; font-weight: bold;">Country:</label>
+                                <input type="text" id="country" name="country" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label for="index" style="display: block; font-weight: bold;">Postal Code:</label>
+                                <input type="text" id="index" name="index" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            </div>
+                            <div style="text-align: center; margin-top: 20px;">
+                                <button type="submit" class="btn btn-primary" style="background-color: #007bff; border: none; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">Submit Order</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
