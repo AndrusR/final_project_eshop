@@ -2,18 +2,17 @@
 {% block content %}
 
 <!-- Header-->
-<header class="bg-black py-5">
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Boats are coming...</h1>
-            <p class="lead fw-normal text-white-50 mb-0"> Soon! </p>
+<header>
+    <div>
+        <div class="header text-black">
+            <h1>{{ category }}</h1>
         </div>
     </div>
 </header>
 <!-- Section-->
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <div class="row gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 <!--Products                    -->
             {% for product in products %}
             <div class="col mb-5">
@@ -27,21 +26,15 @@
                         <div class="text-center">
                             <!-- Product name-->
                             <h5 class="fw-bolder">{{ product.name }}</h5>
-                            <!-- Product reviews-->
-                            <div class="d-flex justify-content-center small text-warning mb-2">
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                            </div>
+                            <br/>
                             <!-- Product price-->
                             €{{ product.price }}
                             <br/>
+                            <br/>
                             <!-- Product description-->
                             {{ product.description }}
-                            <br/>
-                            Family: {{ product.category }}
+{#                            <br/>#}
+{#                            Family: {{ product.category }}#}
                         </div>
                     </div>
                     <!-- Product actions-->
