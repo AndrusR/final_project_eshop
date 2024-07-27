@@ -20,6 +20,7 @@ body
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+
 }
 
 .sidebar{
@@ -801,4 +802,10 @@ body
 .bg-transparent {
   --bs-bg-opacity: 1;
   background-color: transparent;
+}
+
+.weather-widget {
+  position: absolute;
+  top: 4vh;
+
 }

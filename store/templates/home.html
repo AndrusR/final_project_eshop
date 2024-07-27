@@ -9,5 +9,7 @@
     <a href="{% url 'lease' %}">
         <img class="lease" src="{% static "images/lease.svg" %}" alt="lease" style="width:300px;height:600px;">
     </a>
-
+    <div id="weather-container">
+        {% include 'weather/index.html' %}
+    </div>
 {% endblock %}
