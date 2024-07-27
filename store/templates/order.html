@@ -5,10 +5,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12">
-                <div class="card order-card">
-                    <div class="card-body order-card-body">
-                        <h2 class="text-center text-black mb-4">Shipping Information</h2>
-                        <form method="post" action="{% url 'order_info' %}" style="max-width: 600px; margin: auto;">
+                <div class="card order-card" style="margin: 20px;">
+                    <div class="card-body order-card-body" style="margin: 20px;">
+                        <h2 class="text-center text-black mb-4" style="padding-bottom: 20px">Shipping Information</h2>
+                        <form method="post" action="{% url 'place_order' %}" style="max-width: 600px; margin: auto;">
                             {% csrf_token %}
                             <div style="margin-bottom: 15px;">
                                 <label for="full_name" style="display: block; font-weight: bold;">Full Name:</label>
@@ -39,7 +39,8 @@
                                 <input type="text" id="index" name="index" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
                             </div>
                             <div style="text-align: center; margin-top: 20px;">
-                                <button type="submit" class="btn btn-primary" style="background-color: #007bff; border: none; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">Submit Order</button>
+                                <a href="{% url 'cart' %}" class="btn btn-secondary" style="background-color: #6c757d; border: none; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px;">Back to Cart</a>
+                                <button type="submit" class="btn btn-primary" style="background-color: #007bff; border: none; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">Place Order</button>
                             </div>
                         </form>
                     </div>

@@ -5,43 +5,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12">
-                <div class="card order-info-card">
-                    <div class="card-body order-info-card-body">
-                        <h2 class="text-center text-black mb-4">Order Confirmation</h2>
-                        <div style="display: grid; grid-template-columns: auto 1fr auto auto; gap: 10px; padding: 10px;">
-                            {% for item in order_items %}
-                                <div>
-                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="width: 100px; height: auto;">
-                                </div>
-                                <div style="display: flex; align-items: center; font-weight: bold;">
-                                    {{ item.product.name }}
-                                </div>
-                                <div style="display: flex; align-items: center; color: #555;">
-                                    {{ item.quantity }}
-                                </div>
-                                <div style="display: flex; align-items: center; color: #007bff;">
-                                    ${{ item.product.price }}
-                                </div>
-                            {% endfor %}
-                        </div>
-                        <div style="display: flex; justify-content: space-between; padding: 10px; margin-top: 20px; border-top: 1px solid #ddd;">
-                            <div>
-                                <span style="font-weight: bold;">Total Quantity: {{ total_quantity }}</span><br>
-                                <span style="font-weight: bold;">Total Price: ${{ total_price }}</span>
-                            </div>
-                        </div>
-                        <h3 style="font-family: Arial, sans-serif; text-align: center; color: #333; margin-top: 20px;">Shipping Information</h3>
-                        <div style="max-width: 600px; margin: auto;">
-                            <p style="font-family: Arial, sans-serif; color: #555;">
-                                <strong>Full Name:</strong> {{ order.full_name }}<br>
-                                <strong>Email:</strong> {{ order.email }}<br>
-                                <strong>Address:</strong> {{ order.address }}<br>
-                                <strong>City:</strong> {{ order.city }}<br>
-                                <strong>Phone:</strong> {{ order.phone }}<br>
-                                <strong>Country:</strong> {{ order.country }}<br>
-                                <strong>Postal Code:</strong> {{ order.index }}<br>
-                            </p>
-                        </div>
+                <div class="card order-info-card" style="margin: 15px;">
+                    <div class="card-body order-info-card-body text-center" style="margin: 15px;">
+                        <h2 class="text-black mb-4 heading-spacing" style="margin-bottom: 20px;">Checkout was successful.</h2>
+                        <h4 class="text-black mb-4 heading-spacing" style="margin-bottom: 20px;">Thank you for your order!</h4>
+                        <a href="{% url 'home' %}" class="btn btn-secondary" style="background-color: #6c757d; border: none; padding: 8px 15px; color: white; text-decoration: none; border-radius: 5px; margin-top: 5px; display: inline-block; width: 100px; text-align: center;">Home</a>
                     </div>
                 </div>
             </div>
