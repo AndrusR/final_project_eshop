@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+{% endblock %}
+
+{% block content %}
+<section class="cart-container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="card cart-card" style="margin: 20px;">
+                    <div class="card-body cart-card-body" style="margin: 20px;">
+                        <h2 class="text-center text-black mb-4" style="padding-bottom: 20px">Your Cart</h2>
+                        {% if user.is_authenticated %}
+                            {% if cart %}
+                                <div style="display: grid; grid-template-columns: auto 1fr auto auto auto; gap: 20px; padding: 10px;">
+                                    <!-- Header Row -->
+                                    <div style="padding-bottom: 5px; padding-right: 20px; font-weight: bold;">Image</div>
+                                    <div style="padding-bottom: 5px; padding-right: 20px; font-weight: bold;">Product</div>
+                                    <div style="padding-bottom: 5px; padding-right: 20px; font-weight: bold;">Quantity</div>
+                                    <div style="padding-bottom: 5px; padding-right: 20px; font-weight: bold;">Price</div>
+                                    <div style="padding-bottom: 5px; padding-right: 20px; font-weight: bold;">Add/Remove</div>
+
+                                    <!-- Cart Items -->
+                                    {% for item in cart %}
+                                        <div style="padding-right: 20px;">
+                                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="width: 100px; height: auto;">
+                                        </div>
+                                        <div style="display: flex; align-items: center; padding-right: 20px;">
+                                            {{ item.product.name }}
+                                        </div>
+                                        <div style="display: flex; align-items: center; color: #555; padding-right: 20px;">
+                                            {{ item.quantity }}
+                                        </div>
+                                        <div style="display: flex; align-items: center; color: #007bff; padding-right: 20px;">
+                                            {{ item.product.price }}€
+                                        </div>
+                                        <div style="display: flex; align-items: center; padding-right: 20px;">
+                                            <form method="post" action="{% url 'add_to_cart' item.product.id %}">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-success btn-sm">+</button>
+                                            </form>
+                                            <form method="post" action="{% url 'remove_from_cart' item.product.id %}" style="margin-left: 5px;">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-danger btn-sm">-</button>
+                                            </form>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding: 10px; margin-top: 20px; border-top: 1px solid #ddd;">
+                                    <div>
+                                        <span><b>Total Quantity: </b>{{ total_quantity }}</span><br>
+                                        <span><b>Total Price: </b>{{ total_price }}€</span>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <p style="font-family: Arial, sans-serif; text-align: center; color: #999;">Your cart is empty.</p>
+                            {% endif %}
+                        {% else %}
+                            <p style="font-family: Arial, sans-serif; text-align: center; color: #999;">You need to <a href="{% url 'login' %}">log in</a> to view your cart.</p>
+                        {% endif %}
+                        <div style="display: flex; justify-content: space-between; padding: 10px; margin-top: 20px; border-top: 1px solid #ddd;">
+                            <a href="{% url 'home' %}" class="btn btn-secondary btn-lg" style="background-color: #6c757d; border: none; color: white; text-decoration: none; border-radius: 5px; padding: 10px 20px; margin-right: 5px;">Continue Shopping</a>
+                            <a href="{% url 'place_order' %}" class="btn btn-primary btn-lg" style="background-color: #007bff; border: none; color: white; text-decoration: none; border-radius: 5px; padding: 10px 20px;">Proceed to Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

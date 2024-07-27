@@ -54,6 +54,10 @@
                             <span class="material-symbols-outlined">logout</span>
                             <a href="{% url 'logout' %}">Logout</a>
                         </li>
+                        <li>
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <a href="{% url 'cart' %}">Cart</a>
+                    </li>
                     {% else %}
                         <li>
                             <span class="material-symbols-outlined">id_card</span>
@@ -63,13 +67,11 @@
                             <span class="material-symbols-outlined">login</span>
                             <a href="{% url 'login' %}">Login</a>
                         </li>
-                    {% endif %}
-
-                    <li>
+                        <li>
                         <span class="material-symbols-outlined">shopping_cart</span>
-                        <a href="#">Cart</a>
+                        <a href="{% url 'login' %}">Cart</a>
                     </li>
+                    {% endif %}
                 </ul>
-
     </aside>
 </body>
