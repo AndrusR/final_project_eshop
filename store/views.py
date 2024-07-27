@@ -84,9 +84,14 @@ class AddToCartView(View):
 
         cart_item.save()
 
-        # Redirect back to the product page with a success query parameter
-        return redirect(f'/product/{product_id}/?added_to_cart=true')
-
+        # Determine where to redirect based on the Referer header
+        referer = request.META.get('HTTP_REFERER')
+        if referer and 'product' in referer:
+            # Redirect back to the product detail page
+            return redirect(referer)
+        else:
+            # Redirect to the cart page
+            return redirect('cart')
 
 @method_decorator(login_required(login_url='/registration/login/'), name='dispatch')
 class RemoveFromCartView(View):
@@ -98,6 +103,7 @@ class RemoveFromCartView(View):
             cart_item.save()
         else:
             cart_item.delete()
+        # Redirect back to the cart page
         return redirect('cart')
 
 
