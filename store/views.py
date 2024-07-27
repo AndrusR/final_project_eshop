@@ -73,11 +73,19 @@ class CartView(View):
 @method_decorator(login_required(login_url='/registration/login/'), name='dispatch')
 class AddToCartView(View):
     def post(self, request, product_id):
-        product = Product.objects.get(id=product_id)
+        product = get_object_or_404(Product, id=product_id)
+        quantity = int(request.POST.get('quantity', 1))  # Default to 1 if not provided
+
         cart_item, created = ShoppingCart.objects.get_or_create(user=request.user, product=product)
-        cart_item.quantity += 1
+        if created:
+            cart_item.quantity = quantity
+        else:
+            cart_item.quantity += quantity
+
         cart_item.save()
-        return redirect('cart')
+
+        # Redirect back to the product page with a success query parameter
+        return redirect(f'/product/{product_id}/?added_to_cart=true')
 
 
 @method_decorator(login_required(login_url='/registration/login/'), name='dispatch')
