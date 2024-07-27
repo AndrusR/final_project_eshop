@@ -91,7 +91,7 @@ The project uses PostgreSQL for local database.
 
 Execute tests with the following command:
 ```sh
-pytest tests
+python manage.py test
 ```
 
 ## GIT
