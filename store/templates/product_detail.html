@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
                                 <br/><br/>
-                                <a href="{% url 'home' %}" class="btn btn-secondary">Home</a>
+                                <a href="{{request.META.HTTP_REFERER}}" class="btn btn-secondary">Back</a>
                                 <button type="submit" class="btn btn-secondary" id="add-cart">Add To Cart</button>
                             </form>
                         {% else %}
