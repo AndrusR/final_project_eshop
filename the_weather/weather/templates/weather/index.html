@@ -3,14 +3,14 @@
     <div class="box weather-widget">
         <article class="media">
             <div class="media-left">
-                <figure class="image is-50x50">
+                <figure>
                     <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Image">
                 </figure>
             </div>
             <div class="media-content">
-                <div class="content">
+                <div>
                     <p>
-                        <span class="title">{{ weather.city }}</span>
+                        <span style="font-weight: bold" class="title">{{ weather.city }}</span>
                         <br>
                         <span class="subtitle">{{ weather.temperature }}° C</span>
                         <br> {{ weather.description }}
