@@ -25,7 +25,7 @@ The site has an admin panel you can access at `admin/`, where you can perform al
 - Docker
 - Python
 
-## Installation and Usage (Windows)
+## Installation and Usage
 
 ### Local Installation
 
@@ -33,8 +33,8 @@ The site has an admin panel you can access at `admin/`, where you can perform al
     ```sh
     git clone https://github.com/AndrusR/final_project_eshop.git
     cd final_project_eshop
-    python3 -m venv venv
-    source venv/bin/activate
+    python -m venv venv
+    venv/bin/activate
     ```
 
 2. **Install the requirements:**
