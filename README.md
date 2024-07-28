@@ -27,29 +27,6 @@ The site has an admin panel you can access at `admin/`, where you can perform al
 
 ## Installation and Usage (Windows)
 
-### Docker Installation (Recommended)
-
-Make sure Docker is installed on your system.
-
-1. **Clone the repository:**
-    ```sh
-    git clone https://github.com/AndrusR/final_project_eshop.git
-    cd final_project_eshop
-    ```
-
-2. **Build the Docker image:**
-    ```sh
-    docker build --tag final_project_eshop
-    ```
-
-3. **Run the Docker container:**
-    ```sh
-    docker run -d -p 8000:8000 final_project_eshop
-    ```
-
-4. **Access the application:**
-    Navigate to `http://127.0.0.1:8000` or `http://localhost:8000` in your browser.
-
 ### Local Installation
 
 1. **Clone the repository and create your virtual environment:**
